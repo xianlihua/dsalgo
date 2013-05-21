@@ -66,7 +66,13 @@ ArrayList.prototype = {
             throw 'Error: insert error';
         }
 
-        this.data.splice(index, 0, value);
+        var i = this.length;
+        while (i > index) {
+            this.data[i] = this.data[i - 1];
+            i--;
+        }
+
+        this.data[index] = value;
         this.length++;
     },
 
@@ -80,8 +86,15 @@ ArrayList.prototype = {
             throw 'Error: remove error';
         }
 
+        var result = this.data[index];
+        var i = index;
+        while (i < this.length) {
+            this.data[i] = this.data[i + 1];
+            i++;
+        }
+
         this.length--;
-        return this.data.splice(index, 1);
+        return result;
     }
 };
 
@@ -97,7 +110,7 @@ list.insert(2, '.');
 list.insert(4, '.');
 console.log(list.data.join('')); // http://www.csser.com
 
-list.remove(0);
+console.log(list.remove(0)); // http://
 console.log(list.data.join('')); // www.csser.com
 
 console.log(list.length); // 5
