@@ -48,15 +48,6 @@ ArrayList.prototype = {
     },
 
     /**
-     * 向列表中追加值
-     * @param  {Mixed} value 要追加的值
-     */
-    'append': function (value) {
-        this.data.push(value);
-        this.length++;
-    },
-
-    /**
      * 向列表中插入数据
      * @param  {Number} index 数据要插入的位置
      * @param  {Mixed} value 要插入的值
@@ -93,28 +84,7 @@ ArrayList.prototype = {
             i++;
         }
 
-        this.length--;
+        this.length = --this.data.length;
         return result;
     }
 };
-
-// test
-var list = new ArrayList();
-list.insert(0, 'www'); // ['www']
-list.append('csser'); // ['www', 'csser']
-list.insert(2, 'com'); // ['www', 'csser', 'com']
-console.log(list.data.join('.')); // www.csser.com
-
-list.insert(0, 'http://');
-list.insert(2, '.');
-list.insert(4, '.');
-console.log(list.data.join('')); // http://www.csser.com
-
-console.log(list.remove(0)); // http://
-console.log(list.data.join('')); // www.csser.com
-
-console.log(list.length); // 5
-console.log(list.isEmpty()); // false
-
-list.clear();
-console.log(list.isEmpty()); // true

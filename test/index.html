@@ -1,0 +1,25 @@
+<!DOCTYPE hml>
+<html>
+<head>
+<title>单元测试</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../deps/mocha.css">
+<script src="../deps/mocha.js"></script>
+<script>
+mocha.setup('bdd');
+
+function assert(expr, msg) {
+    if (!expr) throw new Error(msg || 'failed');
+}
+
+window.onload = function () {
+    mocha.run();
+};
+</script>
+<script src="../samples/ArrayList.js"></script>
+<script src="../test/ArrayList.js"></script>
+</head>
+<body>
+<div id="mocha"></div>
+</body>
+</html>
