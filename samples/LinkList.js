@@ -22,8 +22,8 @@ LinkList.prototype = {
     },
 
     /**
-     * 判断结点是否为空
-     * @return {Boolean} 结点是否为空的布尔值
+     * 判断链表是否为空
+     * @return {Boolean} 链表是否为空的布尔值
      */
     'isEmpty': function () {
         return this.length === 0;
@@ -152,14 +152,14 @@ LinkList.prototype = {
         var current = prev.next;
         prev.next = current.next;
 
-        return current;
+        return --this.length, current;
     },
 
     /**
      * 将链表转换为顺序表
      * @return {Array} 链表的顺序表形式
      */
-    'toArrayList': function () {
+    'toArray': function () {
         var current = this.head;
         var array = [];
 
