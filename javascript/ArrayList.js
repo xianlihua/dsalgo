@@ -57,10 +57,9 @@ ArrayList.prototype = {
             throw 'Error: insert error';
         }
 
-        var i = this.length;
+        var i = this.length - 1;
         while (i > index) {
-            this.data[i] = this.data[i - 1];
-            i--;
+            this.data[i] = this.data[--i];
         }
 
         this.data[index] = value;
@@ -79,12 +78,11 @@ ArrayList.prototype = {
 
         var result = this.data[index];
         var i = index;
-        while (i < this.length) {
-            this.data[i] = this.data[i + 1];
-            i++;
+        while (i < this.length - 1) {
+            this.data[i] = this.data[++i];
         }
 
-        this.length = --this.data.length;
+        this.length--;
         return result;
     }
 };
