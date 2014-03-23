@@ -1,6 +1,4 @@
 #include <iostream>
-#include <cstring>
-#include <cstdlib>
 using namespace std;
 
 const int N = 200;
@@ -151,7 +149,7 @@ BigInt BigInt::operator * (const BigInt & bi) {
     return b;
 }
 
-// 手算正整数除法 减法 效率超低
+// 减法求除法 效率超低
 /*BigInt BigInt::operator / (const BigInt & bi) {
     BigInt b, tmp(*this);
     if (tmp < bi) return b;
@@ -176,7 +174,7 @@ BigInt BigInt::operator * (const BigInt & bi) {
     return b;
 }*/
 
-// 试商求大树除法
+// 试商求大数除法
 BigInt BigInt::operator / (const BigInt & bi) {
     BigInt b;
     if (*this < bi) return b;
